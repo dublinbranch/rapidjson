@@ -16,17 +16,14 @@ void rapidAssert(bool condition) {
 //Choose to throw on error or not https://github.com/Tencent/rapidjson/issues/1606
 inline thread_local bool rapidAssertEnabled = true;
 
-
 //this will require QMAKE_CXXFLAGS += -msse4.2
 #define RAPIDJSON_SSE42 1 //why not ? we do not target gameboy anymore
 
-#define RAPIDJSON_48BITPOINTER_OPTIMIZATION 1 //stuff some data in the high part of 64bit ptr (x64 IGNORE after bit 48) 
-#define RAPIDJSON_PARSE_DEFAULT_FLAGS 32 //add the ability to have comment inside 
+#define RAPIDJSON_48BITPOINTER_OPTIMIZATION 1 //stuff some data in the high part of 64bit ptr (x64 IGNORE after bit 48)
+#define RAPIDJSON_PARSE_DEFAULT_FLAGS 32      //add the ability to have comment inside
 
 #include "rapidjson/document.h"
-#include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
-
-
+#include "rapidjson/writer.h"
 
 #endif // RAPIDJSON_INCLUDEME_H
