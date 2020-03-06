@@ -7,7 +7,9 @@ void rapidAssert(bool condition);
 /**
 void rapidAssert(bool condition) {
 	if (!condition && rapidAssertEnabled) {
-		//qCritical().noquote() << QStacker();
+		if(rapidAssertPrintTrace){
+			qCritical().noquote() << QStacker();
+		}
 		throw 3;
 	}
 }
@@ -15,6 +17,7 @@ void rapidAssert(bool condition) {
 
 //Choose to throw on error or not https://github.com/Tencent/rapidjson/issues/1606
 inline thread_local bool rapidAssertEnabled = true;
+inline thread_local bool rapidAssertPrintTrace = true;
 
 //this will require QMAKE_CXXFLAGS += -msse4.2
 #define RAPIDJSON_SSE42 1 //why not ? we do not target gameboy anymore
