@@ -50,4 +50,6 @@ inline thread_local bool rapidAssertPrintTrace = true;
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
 
+typedef rapidjson::GenericValue<rapidjson::UTF8<>> jsonValue;
+
 #endif // RAPIDJSON_INCLUDEME_H
