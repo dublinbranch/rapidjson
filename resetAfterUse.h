@@ -7,16 +7,20 @@
 template <typename K>
 class ResetAfterUse {
       public:
-    ResetAfterUse(K& key, const K& value) {
-        old       = key;
-        key       = value;
-        this->key = &key;
-    }
-    ~ResetAfterUse() {
-        *key = old;
-    }
+	ResetAfterUse() = default;
+	void set(K& key, const K& value) {
+		old       = key;
+		key       = value;
+		this->key = &key;
+	}
+	ResetAfterUse(K& key, const K& value) {
+		set(key, value);
+	}
+	~ResetAfterUse() {
+		*key = old;
+	}
 
       private:
-    K* key;
-    K  old;
+	K* key = nullptr;
+	K  old;
 };
