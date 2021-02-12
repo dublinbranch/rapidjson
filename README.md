@@ -1,3 +1,10 @@
+Either include with
+
+include(rapidjson/rapidjson.pri)
+
+
+Or
+
 Remember to define somewhere the
 
 #include "rapidjson/includeMe.h"
@@ -17,3 +24,4 @@ void rapidAssert(bool condition) {
 Also add
 
 QMAKE_CXXFLAGS += -msse4.2
+
