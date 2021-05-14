@@ -9,19 +9,21 @@ class ResetAfterUse {
       public:
 	ResetAfterUse() = default;
 	void set(K& key, const K& value) {
-		old       = key;
-		key       = value;
-		this->key = &key;
+		//Copy the value
+		oldValue = key;
+		//Assign the new one
+		key = value;
+		//Keep a reference
+		this->variable = &key;
 	}
 	ResetAfterUse(K& key, const K& value) {
 		set(key, value);
 	}
 	~ResetAfterUse() {
-		*key = old;
+		*variable = oldValue;
 	}
 
       private:
-	K* key = nullptr;
-	K  old;
+	K* variable = nullptr;
+	K  oldValue;
 };
-
