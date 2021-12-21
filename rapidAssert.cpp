@@ -9,6 +9,6 @@ void rapidAssert(bool condition) {
 			cxaNoStack = true;
 			qCritical().noquote() << QStacker16();
 		}
-		throw 3;
+		throw ExceptionV2("json error");
 	}
 }
