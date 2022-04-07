@@ -5,8 +5,6 @@
 #define RAPIDJSON_ASSERT(x) rapidAssert(x);
 void rapidAssert(bool condition);
 
-#include "resetAfterUse.h"
-
 //Choose to throw on error or not https://github.com/Tencent/rapidjson/issues/1606
 inline thread_local bool rapidAssertEnabled    = true;
 inline thread_local bool rapidAssertPrintTrace = true;
